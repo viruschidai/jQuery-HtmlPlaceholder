@@ -2,8 +2,9 @@
 	<head>
 		<style type="text/css">
 			.jQuery-htmlplaceholder-container{
-				display: inline-block;
-				position: relative;
+				margin: 0;
+				padding: 0;
+				border: 0;
 			}
 				
 			.jQuery-htmlplaceholder{
@@ -36,22 +37,31 @@
 		<script type="text/javascript" src="../js/jquery.htmlplaceholder.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function () {
-				$("#test1").htmlplaceholder({value: '<b>I am </b> <i>a input field</i>!'});
-				$("#test3").htmlplaceholder({value: '<b>I am <span class="blue">no2</span> input field</b>'});
-				$("#test2").htmlplaceholder({value: '<b>I </b>  <span class="supercool"><i>am a text area</i></span>!'});
+				$("#input1").htmlplaceholder({msg: '<b>I am </b> <i>a input field</i>!'});
+				$("#input2").htmlplaceholder({msg: '<b>I am <span class="blue">no2</span> input field</b>'});
+				$("#textarea1").htmlplaceholder({msg: '<b>I </b>  <span class="supercool"><i>am a text area</i></span>!'});
+				$("#textarea2").htmlplaceholder({msg: function(el){
+						return $(el).attr('htmlplaceholder');
+					}
+				});
 			});			
 		</script>		
 	</head>
 	<body>
 		<div>
 			<p>Placeholder for an input box:</p>
-			<input id="test1"> </input>
-			<input id="test3"> </input>
+			<input id="input1"> </input>
+			<input id="input2"> </input>
 		</div>
 		<br/>
 		<div>
 			<p>Placeholder for an textarea:</p>
-			<textarea id="test2"></textarea>
+			<textarea id="textarea1"></textarea>
+		</div>
+		
+		<div>
+			<p>Read placeholder message from a custom attibute</p>
+			<textarea id="textarea2" htmlplaceholder="haha <b>Smile</b> haha"></textarea>
 		</div>
 	</body>
 
