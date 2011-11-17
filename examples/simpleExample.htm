@@ -1,7 +1,31 @@
 <html>
 	<head>
 		<style type="text/css">
+			.jQuery-htmlplaceholder-container{
+				display: inline-block;
+				position: relative;
+			}
+				
+			.jQuery-htmlplaceholder{
+				color: #808080;
+				font-family: arial;
+				font-size: 11px;
+				z-index: 100;
+				font-style: italic;
+			}
 			
+			.jQuery-htmlplaceholder b{
+				color: red;
+			}
+			
+			.supercool{
+				color: #777777;
+				font-weight: bold;
+			}
+			
+			.blue{
+				color: blue;
+			}
 		</style>
 		
 		<script type="text/javascript" src="https://www.google.com/jsapi?key=INSERT-YOUR-KEY"></script>
@@ -9,15 +33,26 @@
 		  google.load("jquery", "1.7.0");
 		  google.load("jqueryui", "1.8.16");
 		</script>
-		
+		<script type="text/javascript" src="../js/jquery.htmlplaceholder.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("#test1").htmlplaceholder({value: '<b>I am </b> <i>a input field</i>!'});
+				$("#test3").htmlplaceholder({value: '<b>I am <span class="blue">no2</span> input field</b>'});
+				$("#test2").htmlplaceholder({value: '<b>I </b>  <span class="supercool"><i>am a text area</i></span>!'});
+			});			
+		</script>		
 	</head>
 	<body>
 		<div>
-			<input id="test1" type="text" value=""/>
+			<p>Placeholder for an input box:</p>
+			<input id="test1"> </input>
+			<input id="test3"> </input>
+		</div>
+		<br/>
+		<div>
+			<p>Placeholder for an textarea:</p>
+			<textarea id="test2"></textarea>
 		</div>
 	</body>
-	<script type="text/javascript" src="../js/jquery.htmlplaceholder.js"></script>
-	<script type="text/javascript">
-		$("#test1").htmlplaceholder({value: 'Please type here!'});
-	</script>
+
 </html>
